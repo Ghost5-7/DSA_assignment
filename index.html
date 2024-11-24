@@ -3,23 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Tag Validator</title>
-    <!-- Add a console log to verify the HTML is loading -->
-    <script>console.log("HTML loaded");</script>
-    <!-- Use explicit path to CSS -->
-    <link rel="stylesheet" href="./styles.css">
+    <title>Car Sellers</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
-    <div class="container">
-        <h1>HTML Tag Validator</h1>
-        <div class="validator-box">
-            <textarea id="htmlInput" placeholder="Paste your HTML code here..."></textarea>
-            <button onclick="validateHTML()">Validate Tags</button>
-            <div id="result" class="result"></div>
+    <header>
+        <nav>
+            <h1>Car Sellers</h1>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#categories">Categories</a>
+                <a href="#bookings">My Bookings</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="categories">
+            <h2>Car Categories</h2>
+            <div class="category-grid">
+                <div class="category-card" data-category="suv">
+                    <h3>SUV</h3>
+                    <img src="suv_image.jpg" alt="SUV">
+                </div>
+                <div class="category-card" data-category="sedan">
+                    <h3>Sedan</h3>
+                    <img src="sedan_img.jpg" alt="Sedan">
+                </div>
+                <div class="category-card" data-category="luxury">
+                    <h3>Luxury</h3>
+                    <img src="luxury_img.jpg" alt="Luxury">
+                </div>
+                <div class="category-card" data-category="sports">
+                    <h3>Sports Cars</h3>
+                    <img src="bugatti_chiron.jpg" alt="Sports Cars">
+                </div>
+            </div>
+        </section>
+
+        <section id="car-list" class="hidden">
+            <h2>Available Cars</h2>
+            <div class="car-grid" id="carGrid"></div>
+        </section>
+    </main>
+
+    <!-- Add Booking Modal -->
+    <div id="bookingModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Book a Car</h2>
+            <form id="bookingForm" action="/submit" method="POST">
+                <div class="form-group">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                
+                    <label for="startDate">Pickup date:</label>
+                    <input type="date" id="startDate" name="startDate" required>
+                
+                    <label for="endDate">Last pickup date:</label>
+                    <input type="date" id="endDate" name="endDate" required>
+                
+                    <label for="licenseNumber">Driver's License:</label>
+                    <input type="text" id="licenseNumber" name="licenseNumber" required>
+                
+                    <button type="submit">Join Waiting List</button>
+                </div>
+            </form>
+            </form>
         </div>
     </div>
-    <!-- Use explicit path to JavaScript -->
-    <script src="./script.js"></script>
+
+    <!-- Add Waiting List Modal -->
+    <div id="waitingListModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Current Waiting List</h2>
+            <div id="waitingListContent"></div>
+        </div>
+    </div>
 </body>
+<script src="script.js"></script>
 </html>
